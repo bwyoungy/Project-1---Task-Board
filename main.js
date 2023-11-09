@@ -18,6 +18,7 @@ function previewTaskColour() {
 // Adds task to tasks array in code and displays up-to-date tasklist
 function addNewTask() {
 
+    // Validate form to make sure user entered information for all fields
     if (!validateInput()) return;
 
     // Save date new task was added
@@ -32,6 +33,10 @@ function addNewTask() {
         taskNew: true, // flag checking if task is new
         taskDateTimeAdded: dateNow
     };
+
+    // If tasks is null set tasks to empty array
+    // (shouldn't happen in regular workflow, but can happen due to crash or user/QA manually deleting localstorage)
+    if (tasks === null) tasks = [];
 
     // Add the new task to the task array
     tasks.push(newTask);
@@ -61,7 +66,6 @@ function displayTasks() {
     if (tasks === null || tasks.length === 0) {
         // Set taskboard as empty and exit function
         document.getElementById("taskBoard").innerHTML = "";
-        tasks = [];
         return;
     }
 
@@ -115,7 +119,8 @@ function deleteAllTasks() {
     // Save task array in localStorage as JSON
     localStorage.setItem("tasksArr", JSON.stringify(tasks));
 
-    displayTasks();
+    // Set taskboard as empty
+    document.getElementById("taskBoard").innerHTML = "";
 }
 
 // Sorts tasks in array based on due date&time and displays up-to-date tasklist

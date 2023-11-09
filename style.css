@@ -17,6 +17,8 @@ h1 {
 #addTaskForm {
     font-size: x-large;
     margin-bottom: 50px;
+    margin-left: 20%;
+    width: 60%;
 
     background-image: url("assets/images/lined-paper.jpg");
     background-color: #d6b381;
@@ -29,16 +31,15 @@ button {
     font-size: large;
 }
 
+/* Display tasks using grid, limiting to 4 per row */
 #taskBoard {
     display: grid;
-    /* grid-template-columns: 33% 33% 33%; */
     grid-template-columns: 25% 25% 25% 25%;
     gap: 10px;
     padding: 0 3%;
 }
 
 .task {
-    border: 1px solid black;
     /* default background colour for task  */
     background-color: gold;
     border-radius: 25px;
@@ -57,7 +58,7 @@ button {
     opacity: 1;
   }
 
-.taskContent {
+  .taskContent {
     text-align: center;
     font-size: x-large;
     height: 100px;
@@ -80,6 +81,7 @@ button {
     src: url("assets/fonts/Agbalumo.ttf");
 }
 
+/* Fade in animation, based on changing opacity from 0 to 1 */
 @keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}

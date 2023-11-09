@@ -11,6 +11,7 @@
 <body onload="loadTasks()">
     <h1>My Task Board</h1>
 
+    <!-- Form in which user adds a new tasks -->
     <form onsubmit="return false" id="addTaskForm">
         <label for="taskContentInput">Task content:
             <input type="text" id="taskContentInput" class="taskInputField">
@@ -23,6 +24,7 @@
             <input type="time" id="taskTimeInput" class="taskInputField">
         </label>
         <label for="taskColourInput">Colour:
+            <!-- User chooses colour for task from pre-defined list -->
             <select id="taskColourInput" class="taskInputField" onchange="previewTaskColour()">
                 <option value="">(select colour)</option>
                 <option value="gold">Yellow</option>
@@ -37,12 +39,15 @@
         <button onclick="addNewTask()">Add Task</button>
         <button onclick="resetForm()">Clear</button>
 
+        <!-- An empty span to hold error messages if there are following validation of the form -->
         <span id="errorMessage"></span>
     </form>
 
+    <!-- A div that will contain the tasks - loaded from localstorage and dealt with dynamically -->
     <div id="taskBoard"></div>
 
     <br>
+    <!-- Extra functions that can be done on all tasks -->
     <button onclick="deleteAllTasks()">Clear task board</button>
     <button onclick="sortTasksByDueDateTime()">Sort tasks by due date&time</button>
     <button onclick="sortTasksByColour()">Sort tasks by colour</button>
