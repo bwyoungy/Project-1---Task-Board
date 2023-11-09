@@ -37,7 +37,7 @@ button {
     border-radius: 25px;
 }
 
-.deleteButton {
+/* .deleteButton {
     display: none;
     float: right;
     background-color: red;
@@ -46,7 +46,18 @@ button {
 
 .task:hover > .deleteButton {
     display: block;
-  }
+  } */
+
+.deleteButton {
+    float: right;
+    background-color: gold;
+    color: gold;
+    border: none;
+}
+
+.task:hover > .deleteButton {
+    background-color: red;
+}
 
 .taskContent {
     text-align: center;
