@@ -12,12 +12,16 @@ function addNewTask() {
 
     if (!validateInput()) return;
 
+    // Save date new task was added
+    let dateNow = new Date().toJSON();
+
     // Create object of task
     const newTask = {
         taskContent: document.getElementById("taskContentInput").value,
         taskDate: document.getElementById("taskDateInput").value,
         taskTime: document.getElementById("taskTimeInput").value,
-        taskNew: true
+        taskNew: true, // flag checking if task is new
+        taskDateTimeAdded: dateNow
     };
 
     // Add the new task to the task array
@@ -77,6 +81,54 @@ function deleteTask(index) {
 
     // Delete the task from the array using splice method
     tasks.splice(index, 1);
+
+    // Save task array in localStorage as JSON
+    localStorage.setItem("tasksArr", JSON.stringify(tasks));
+
+    displayTasks();
+}
+
+// Deletes all tasks from tasks array and displays up-to-date (empty) tasklist
+function deleteAllTasks() {
+
+    // Delete all tasks from the array by setting array as empty array
+    tasks = [];
+
+    // Save task array in localStorage as JSON
+    localStorage.setItem("tasksArr", JSON.stringify(tasks));
+
+    displayTasks();
+}
+
+// Sorts tasks in array based on due date&time and displays up-to-date tasklist
+function sortTasksByDueDateTime() {
+
+    // Sort tasks using array sort function based on due date and time
+    tasks.sort(function(a, b){
+        let x = a.taskDate+a.taskTime;
+        let y = b.taskDate+b.taskTime;
+        if (x < y) {return -1;}
+        if (x > y) {return 1;}
+        return 0;
+      });
+
+    // Save task array in localStorage as JSON
+    localStorage.setItem("tasksArr", JSON.stringify(tasks));
+
+    displayTasks();
+}
+
+// Sorts tasks in array by original order added and displays up-to-date tasklist
+function sortTasksByOrderAdded() {
+
+    // Sort tasks using array sort function based on date&time added
+    tasks.sort(function(a, b){
+        let x = a.taskDateTimeAdded;
+        let y = b.taskDateTimeAdded;
+        if (x < y) {return -1;}
+        if (x > y) {return 1;}
+        return 0;
+      });
 
     // Save task array in localStorage as JSON
     localStorage.setItem("tasksArr", JSON.stringify(tasks));
