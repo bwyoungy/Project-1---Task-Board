@@ -9,6 +9,12 @@ function loadTasks() {
     displayTasks();
 }
 
+// Colours colour selection object by colour selected
+function previewTaskColour() {
+    let taskColourObj = document.getElementById("taskColourInput");
+    taskColourObj.style.backgroundColor = taskColourObj.value;
+}
+
 // Adds task to tasks array in code and displays up-to-date tasklist
 function addNewTask() {
 
@@ -22,6 +28,7 @@ function addNewTask() {
         taskContent: document.getElementById("taskContentInput").value,
         taskDate: document.getElementById("taskDateInput").value,
         taskTime: document.getElementById("taskTimeInput").value,
+        taskColour: document.getElementById("taskColourInput").value,
         taskNew: true, // flag checking if task is new
         taskDateTimeAdded: dateNow
     };
@@ -40,6 +47,7 @@ function addNewTask() {
 // Clears input in HTML form and clears error message
 function resetForm() {
     document.getElementById("addTaskForm").reset();
+    previewTaskColour();
     document.getElementById("errorMessage").innerText = "";
 }
 
@@ -70,7 +78,7 @@ function displayTasks() {
         }
 
         // Add each task as a div
-        html += `<div class="${taskClass}">
+        html += `<div class="${taskClass}" style="background-color:${task.taskColour};">
                     <button class="deleteButton" onclick="deleteTask(${index})"><span class="glyphicon glyphicon-remove"></span></button>
                     <p class="taskContent">${task.taskContent}</p>
                     <p class="taskDateTime">${task.taskDate}</p>

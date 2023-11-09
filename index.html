@@ -22,6 +22,16 @@
         <label for="taskTimeInput">Due time:
             <input type="time" id="taskTimeInput" class="taskInputField">
         </label>
+        <label for="taskColourInput">Colour:
+            <select id="taskColourInput" class="taskInputField" onchange="previewTaskColour()">
+                <option value="">(select colour)</option>
+                <option value="gold">Yellow</option>
+                <option value="pink">Pink</option>
+                <option value="powderblue">Blue</option>
+                <option value="forestgreen">Green</option>
+                <option value="orange">Orange</option>
+            </select>
+        </label>
 
         <br>
         <button onclick="addNewTask()">Add Task</button>
