@@ -41,6 +41,7 @@ button {
     display: none;
     float: right;
     background-color: red;
+    color: gold;
 }
 
 .task:hover > .deleteButton {
@@ -50,6 +51,9 @@ button {
 .taskContent {
     text-align: center;
     font-size: x-large;
+    height: 100px;
+    width: 90%;
+    overflow: scroll;
 }
 
 .taskDateTime {
