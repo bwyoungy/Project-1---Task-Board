@@ -2,8 +2,10 @@ let tasks = [];
 
 // Loads tasks from localStorage and displays them on web page
 function loadTasks() {
+
     // Read task array from localStorage and parse from JSON
     tasks = JSON.parse(localStorage.getItem("tasksArr"));
+
     displayTasks();
 }
 
@@ -47,6 +49,14 @@ function displayTasks() {
     // Initialize html string as empty
     let html = "";
     
+    // Check if tasks array is non-existent or empty
+    if (tasks === null || tasks.length === 0) {
+        // Set taskboard as empty and exit function
+        document.getElementById("taskBoard").innerHTML = "";
+        tasks = [];
+        return;
+    }
+
     // Iterate over every task in our array (using destructuring syntax to access index so I can send it as a parameter to deletion function)
     for(let [index, task] of tasks.entries()) {
         // Initialise class to give task
