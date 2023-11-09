@@ -154,6 +154,24 @@ function sortTasksByOrderAdded() {
     displayTasks();
 }
 
+// Sorts tasks in array by colour and displays up-to-date tasklist
+function sortTasksByColour() {
+
+    // Sort tasks using array sort function based on colour
+    tasks.sort(function(a, b){
+        let x = a.taskColour;
+        let y = b.taskColour;
+        if (x < y) {return -1;}
+        if (x > y) {return 1;}
+        return 0;
+      });
+
+    // Save task array in localStorage as JSON
+    localStorage.setItem("tasksArr", JSON.stringify(tasks));
+
+    displayTasks();
+}
+
 // Validates that all input fields were filled
 function validateInput() {
     
