@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1: My Task Board</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
+</head>
+<body onload="loadTasks()">
+    <h1>My Task Board</h1>
+
+    <form onsubmit="return false" id="addTaskForm">
+        <label for="taskContentInput">Task content:
+            <input type="text" id="taskContentInput" class="taskInputField">
+        </label>
+        <br>
+        <label for="taskDateInput">Due date:
+            <input type="date" id="taskDateInput" class="taskInputField">
+        </label>
+        <label for="taskTimeInput">Due time:
+            <input type="time" id="taskTimeInput" class="taskInputField">
+        </label>
+
+        <br>
+        <button onclick="addNewTask()">Add Task</button>
+        <button onclick="resetForm()">Clear</button>
+
+        <span id="errorMessage"></span>
+    </form>
+
+    <div id="taskBoard"></div>
+</body>
+</html>

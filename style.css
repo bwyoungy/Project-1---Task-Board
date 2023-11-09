@@ -1,0 +1,73 @@
+body {
+    background-image: url("assets/images/corkboard.jpg");
+    background-color: tan;
+    background-position: center;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    font-family: Agbalumo;
+}
+
+#addTaskForm {
+    font-size: x-large;
+    margin-bottom: 50px;
+
+    background-image: url("assets/images/lined-paper.jpg");
+    background-color: #d6b381;
+    background-position: center;
+    background-size: cover;
+}
+
+button {
+    font-weight: 900;
+    font-size: large;
+}
+
+#taskBoard {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 10px;
+}
+
+.task {
+    border: 1px solid forestgreen;
+    background-color: gold;
+    border-radius: 25px;
+}
+
+.deleteButton {
+    display: none;
+    float: right;
+    background-color: red;
+}
+
+.task:hover > .deleteButton {
+    display: block;
+  }
+
+.taskContent {
+    text-align: center;
+    font-size: x-large;
+}
+
+.taskDateTime {
+    text-align: left;
+    margin-left: 15px;
+    font-size: smaller;
+}
+
+.newTask {
+    animation: fadeIn 2s;
+}
+
+@font-face {
+    font-family: Agbalumo;
+    src: url("assets/fonts/Agbalumo.ttf");
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
